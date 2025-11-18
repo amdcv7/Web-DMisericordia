@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Divina Misericordia | Jesús, en Ti confío</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES Y RESET --- */
+        :root {
+            --primary: #8B0000; /* Rojo sangre */
+            --secondary: #ADD8E6; /* Azul agua/pálido */
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gold: #D4AF37;
+            --text-font: 'Lato', sans-serif;
+            --title-font: 'Cinzel', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--text-font);
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        /* --- TIPOGRAFÍA --- */
+        h1, h2, h3 {
+            font-family: var(--title-font);
+            color: var(--primary);
+        }
+
+        /* --- NAVEGACIÓN --- */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 700;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- HERO SECTION (PORTADA) --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1548625361-888967f5d9b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #600000;
+            transform: translateY(-3px);
+        }
+
+        /* --- SECCIONES GENERALES --- */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 15px auto;
+        }
+
+        /* --- HISTORIA --- */
+        .history-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .history-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .history-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* --- PROMESAS (Tarjetas) --- */
+        .promises {
+            background-color: var(--light);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+            border-top: 5px solid var(--secondary);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* --- DEVOCIONALES --- */
+        .devotional-item {
+            display: flex;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .devotional-img {
+            flex: 1;
+            background-size: cover;
+            background-position: center;
+            min-height: 300px;
+        }
+
+        .devotional-content {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .rays {
+            height: 5px;
+            background: linear-gradient(to right, var(--primary) 50%, var(--secondary) 50%);
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simplificado para el ejemplo */
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .history-container {
+                grid-template-columns: 1fr;
+            }
+
+            .devotional-item {
+                flex-direction: column;
+            }
+
+            .devotional-img {
+                min-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo"><i class="fas fa-cross"></i> Divina Misericordia</a>
+            <ul class="nav-links">
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#promesas">Promesas</a></li>
+                <li><a href="#devocionales">Devocionales</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Jesús, en Ti confío</h1>
+        <p>"No quiero castigar a la humanidad doliente, sino sanarla..."</p>
+        <a href="#devocionales" class="btn">Rezar la Coronilla</a>
+    </section>
+
+    <section id="historia">
+        <h2 class="section-title">Origen de la Devoción</h2>
+        <div class="history-container">
+            <div class="history-text">
+                <h3>Santa María Faustina Kowalska</h3>
+                <p>
+                    La devoción a la Divina Misericordia comenzó con las apariciones de Jesús a Sor María Faustina Kowalska, una humilde monja polaca, en la década de 1930. Jesús le encomendó una gran misión: recordar al mundo su amor misericordioso.
+                </p>
+                <p>
+                    El 22 de febrero de 1931, Jesús se le apareció vistiendo una túnica blanca, con una mano levantada para bendecir y la otra tocando el pecho. De la abertura de la túnica salían dos grandes rayos: uno rojo y otro pálido. Jesús le dijo: <strong>"Pinta una imagen según el modelo que ves, y firma: Jesús, en Ti confío".</strong>
+                </p>
+            </div>
+            <div class="history-img">
+                <img src="https://images.unsplash.com/photo-1507692814238-132a8b2d7736?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Diario de Santa Faustina">
+            </div>
+        </div>
+    </section>
+
+    <section id="promesas" class="promises">
+        <div class="rays"></div> <h2 class="section-title">Las Grandes Promesas</h2>
+        <p style="text-align: center; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
+            Jesús hizo promesas extraordinarias a quienes veneren su Imagen, recen la Coronilla y confíen en su Misericordia.
+        </p>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <i class="fas fa-hands-praying"></i>
+                <h3>La Hora de la Muerte</h3>
+                <p>"A quienes recen esta coronilla, Me complazco en darles todo lo que Me pidan... defenderé como Mi propia Gloria a cada alma que rece esta Coronilla en la hora de la muerte."</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-heart"></i>
+                <h3>Salvación de Pecadores</h3>
+                <p>"Cuando reces esta oración con corazón contrito y con fe por algún pecador, le concederé la gracia de la conversión."</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Protección Divina</h3>
+                <p>"El alma que venere esta imagen no perecerá. Prometo, ya aquí en la tierra, la victoria sobre los enemigos y, sobre todo, a la hora de la muerte."</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="devocionales">
+        <h2 class="section-title">Cómo Practicar la Devoción</h2>
+
+        <div class="devotional-item">
+            <div class="devotional-img" style="background-image: url('https://images.unsplash.com/photo-1601139362289-4622a477490e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="devotional-content">
+                <h3>1. La Coronilla</h3>
+                <p>Se reza con un rosario común. Comienza con un Padre Nuestro, un Ave María y el Credo.</p>
+                <br>
+                <p><strong>En las cuentas grandes:</strong> "Padre Eterno, Te ofrezco el Cuerpo y la Sangre, el Alma y la Divinidad de Tu Amadísimo Hijo..."</p>
+                <p><strong>En las cuentas pequeñas:</strong> "Por su dolorosa Pasión, ten misericordia de nosotros y del mundo entero."</p>
+                <p><strong>Al final (3 veces):</strong> "Santo Dios, Santo Fuerte, Santo Inmortal, ten piedad de nosotros y del mundo entero."</p>
+            </div>
+        </div>
+
+        <div class="devotional-item">
+            <div class="devotional-content">
+                <h3>2. La Hora de la Misericordia</h3>
+                <p>Jesús pidió que a las <strong>3:00 de la tarde</strong> (hora de su muerte) nos sumerjamos en su pasión.</p>
+                <br>
+                <blockquote>
+                    "En esta hora nada le será negado al alma que lo pida por los méritos de Mi Pasión... Es la hora de la gran misericordia para el mundo entero."
+                </blockquote>
+            </div>
+            <div class="devotional-img" style="background-image: url('https://images.unsplash.com/photo-1495615080073-6b89c9839ce0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="rays"></div>
+        <h3>Jesús, en Ti confío</h3>
+        <p>&copy; 2023 Devoción Divina Misericordia</p>
+        <p style="font-size: 0.8rem; opacity: 0.7;">Diseñado con fe y código.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
